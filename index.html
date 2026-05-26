@@ -208,11 +208,28 @@
         .trust-badges { display: flex; gap: 12px; flex-wrap: wrap; }
         .hero-photo {
             display: flex; justify-content: center; align-items: center;
+            position: relative;
+        }
+        .hero-photo::before {
+            content: '';
+            position: absolute;
+            width: 280px; height: 340px;
+            background: radial-gradient(ellipse at center,
+                rgba(43, 196, 160, 0.15) 0%,
+                rgba(43, 196, 160, 0.06) 40%,
+                transparent 70%);
+            border-radius: 50%;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -48%);
+            z-index: 0;
+            filter: blur(30px);
         }
         .hero-photo img {
             width: 100%; max-width: 400px;
             object-fit: cover;
-            filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
+            position: relative; z-index: 1;
+            filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.35))
+                   drop-shadow(0 0 60px rgba(43, 196, 160, 0.08));
         }
         .trust-badge {
             font-family: 'JetBrains Mono', monospace;
